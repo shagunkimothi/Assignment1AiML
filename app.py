@@ -16,40 +16,100 @@ form_html = """
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prediction Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f6f8;
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        h3 {
+            color: #333;
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
 </head>
 <body>
-    <h2>Enter Feature Values for Prediction</h2>
-    <form method="POST" action="/predict">
-        <label for="feature1">Feature 1:</label>
-        <input type="number" step="any" name="feature1" required><br><br>
+    <div>
+        <h2>Enter Feature Values for Prediction</h2>
+        <form method="POST" action="/predict">
+            <label for="feature1">Feature 1:</label>
+            <input type="number" step="any" name="feature1" required>
 
-        <label for="feature2">Feature 2:</label>
-        <input type="number" step="any" name="feature2" required><br><br>
+            <label for="feature2">Feature 2:</label>
+            <input type="number" step="any" name="feature2" required>
 
-        <label for="feature3">Feature 3:</label>
-        <input type="number" step="any" name="feature3" required><br><br>
+            <label for="feature3">Feature 3:</label>
+            <input type="number" step="any" name="feature3" required>
 
-        <label for="feature4">Feature 4:</label>
-        <input type="number" step="any" name="feature4" required><br><br>
+            <label for="feature4">Feature 4:</label>
+            <input type="number" step="any" name="feature4" required>
 
-        <label for="feature5">Feature 5:</label>
-        <input type="number" step="any" name="feature5" required><br><br>
+            <label for="feature5">Feature 5:</label>
+            <input type="number" step="any" name="feature5" required>
 
-        <label for="feature6">Feature 6:</label>
-        <input type="number" step="any" name="feature6" required><br><br>
+            <label for="feature6">Feature 6:</label>
+            <input type="number" step="any" name="feature6" required>
 
-        <label for="feature7">Feature 7:</label>
-        <input type="number" step="any" name="feature7" required><br><br>
+            <label for="feature7">Feature 7:</label>
+            <input type="number" step="any" name="feature7" required>
 
-        <input type="submit" value="Predict">
-    </form>
+            <input type="submit" value="Predict">
+        </form>
 
-    {% if prediction_text %}
-        <h3>{{ prediction_text }}</h3>
-    {% endif %}
+        {% if prediction_text %}
+            <h3>{{ prediction_text }}</h3>
+        {% endif %}
+    </div>
 </body>
 </html>
 """
+
+
 
 @app.route('/')
 def index():
